@@ -1,0 +1,23 @@
+.description {
+}
+
+.description__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.description__title {
+    color: black;
+    font-weight: 500;
+    line-height: 27px;
+    font-size: 18px ;
+}
+
+.button {
+}
+
+.description__button {
+}
