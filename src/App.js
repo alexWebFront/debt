@@ -10,6 +10,7 @@ const App = () => {
         {/*    </Routes>*/}
         {/*</BrowserRouter>*/}
         <Page/>
+        <Page/>
     </>
 }
 
