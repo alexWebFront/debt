@@ -1,3 +1,10 @@
 .result p {
     margin-bottom: 15px;
 }
+
+.result__table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}

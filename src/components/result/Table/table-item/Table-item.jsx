@@ -2,9 +2,9 @@ import './Table-item.css';
 
 
 const TableItem = (props) => {
-debugger
     return <>
-            <div className="table-item">{props.id} месяц. {props.result}</div>
+        <div className="result__item result__item--months">{props.id} месяц.</div>
+        <div className="result__item result__item--payment">{props.result} кровных рубасиков.</div>
     </>
 }
 

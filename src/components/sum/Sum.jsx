@@ -1,5 +1,5 @@
 import './Sum.css';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sum = (props) => {
 
@@ -15,7 +15,7 @@ const Sum = (props) => {
                     <p className="field__header">
                         Введите сумму и нажмите кнопку "Далее".
                     </p>
-                    <input onChange={newSum} className="input sum__input" type="text" value={props.sum}/>
+                    <input onChange={newSum} className="input sum__input" type="text" value={props.sum} />
                     <div className="navigation">
                         <NavLink to="/">
                             <button className="button sum__button field__button">Назад</button>

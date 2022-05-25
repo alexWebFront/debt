@@ -1,5 +1,5 @@
 import './Months.css';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const Months = (props) => {
@@ -15,7 +15,7 @@ const Months = (props) => {
                     <p className="field__header">
                         Введите количество месяцев и нажмите кнопку "Далее".
                     </p>
-                    <input onChange={getMonths} className="input months__input" type="text" value={props.monthsCount}/>
+                    <input onChange={getMonths} className="input months__input" type="text" value={props.monthsCount} />
                     <div className="navigation">
                         <NavLink to="/sum/*">
                             <button className="button sum__button field__button">Назад</button>
