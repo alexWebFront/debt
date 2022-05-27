@@ -16,28 +16,31 @@ let state = {
 };
 
 export let getSum = (sum) => {
-    state.sumPage.sum = Number(sum);
-    rerenderTree(state);
+    let sumTemp =  Number(sum);
+        state.sumPage.sum = sumTemp;
+        console.log(typeof sumTemp);
+        rerenderTree(state);
 }
 
-export let getMonths = (monthsCount) => {
-    state.monthsPage.monthsCount = Number(monthsCount);
-    for (let i = 0; i < monthsCount; i++) {
 
+export let getMonths = (monthsCount) => {
+    state.monthsPage.months = [];
+    state.monthsPage.monthsCount = Number(monthsCount);
+    for (let i = 0; i < monthsCount;) {
+        i++
         let monthsArr = {
             monthsId: i,
         }
-        state.monthsPage.monthsCount = i;
         state.monthsPage.months.push(monthsArr);
         console.log(i);
-        i++
     }
     rerenderTree(state);
 }
 
+
 export let getResult = () => {
     let result = state.sumPage.sum / state.monthsPage.monthsCount;
-    state.resultPage.result = result;
+    state.resultPage.result = Math.floor(result);
     rerenderTree(state);
 }
 

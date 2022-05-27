@@ -1,19 +1,26 @@
 import './Result.css';
-import { NavLink } from "react-router-dom";
-import TableItem from "./Table/table-item/Table-item";
+import {NavLink} from "react-router-dom";
+import TableItemMonths from "./Table/table-item/Table-item-months";
+import TableItemSum from "./Table/table-item/Table-item-sum";
 
 
 const Result = (props) => {
 
+    const resultMonths = props.months.map((item) => {
+        return <>
+            <TableItemMonths id={item.monthsId}/>
+        </>
+    })
+
+    const resultSum = props.months.map((item) => {
+        return <>
+            <TableItemSum result={props.resultPage.result}/>
+        </>
+    })
+
     let getResult = () => {
         props.getResult();
     }
-
-    const resultElements = props.months.map((item) => {
-        return <>
-            <TableItem id={item.monthsId} result={props.resultPage.result} />
-        </>
-    })
 
     let resetTable = () => {
         props.resetTable();
@@ -27,17 +34,21 @@ const Result = (props) => {
                         <p className="result__sum">Сумма: {props.sum}</p>
                         <p className="result__months">Количество месяцев: {props.monthsCount}</p>
                     </div>
-                    <div className="result__table">
-
-                        {resultElements}
-
+                    <div className="table">
+                        <div className="table__months">
+                            {resultMonths}
+                        </div>
+                        <div className="table__sum">
+                            {resultSum}
+                        </div>
                     </div>
                 </div>
                 <div className="navigation">
                     <button onClick={getResult} className="button result__button field__button">Произвести расчёт
                     </button>
                     <NavLink to="/">
-                        <button onClick={resetTable} className="button result__button field__button">Начать заново</button>
+                        <button onClick={resetTable} className="button result__button field__button">Начать заново
+                        </button>
                     </NavLink>
                 </div>
             </div>
