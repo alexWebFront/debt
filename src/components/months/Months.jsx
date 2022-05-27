@@ -6,6 +6,7 @@ const Months = (props) => {
     let getMonths = (e) => {
         let monthsCount = e.target.value;
         props.getMonths(monthsCount);
+        console.log(e);
     }
 
     return <>
