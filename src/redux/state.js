@@ -16,12 +16,26 @@ let state = {
 };
 
 export let getSum = (sum) => {
-    let sumTemp =  Number(sum);
+    if (!isNaN(sum)) {
+        let sumTemp = sum;
         state.sumPage.sum = sumTemp;
-        console.log(typeof sumTemp);
         rerenderTree(state);
+        return true;
+    } else {
+        return false;
+    }
 }
 
+export let detection = () => {
+
+    let temp = getSum;
+    if (temp === true) {
+        return
+    } else {
+        console.log("NAEBAL");
+        return;
+    }
+}
 
 export let getMonths = (monthsCount) => {
     state.monthsPage.months = [];

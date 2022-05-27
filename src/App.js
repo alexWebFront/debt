@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SiteDescription from "./components/site-description/Site-description";
 import Months from "./components/months/Months";
 import Result from "./components/result/Result";
-import { getMonths, getResult, resetTable } from "./redux/state";
+import {detection, getMonths, getResult, resetTable} from "./redux/state";
 
 const App = (props) => {
     return <>
@@ -14,7 +14,8 @@ const App = (props) => {
                     <Routes>
                         <Route path='/' element={<SiteDescription />} />
                         <Route path='/sum/*' element={<Sum
-                            getSum={props.getSum} />} />
+                            getSum={props.getSum}
+                            detection={props.detection}/>} />
                         <Route path='/months/*' element={<Months
                             getMonths={props.getMonths}
                             monthsPage={props.state.monthsPage} />} />
