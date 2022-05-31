@@ -7,9 +7,6 @@ const Sum = (props) => {
         props.getSum(sum);
     };
 
-    let detectionSum = () =>{
-        props.detection();
-    }
 
     return <>
         <div className="sum">
@@ -21,10 +18,10 @@ const Sum = (props) => {
                     <input onChange={newSum} className="input sum__input" type="text" value={props.sum}/>
                     <div className="navigation">
                         <NavLink to="/">
-                            <button className="button sum__button field__button">Назад</button>
+                            <button className="button sum__button--prev field__button">Назад</button>
                         </NavLink>
                         <NavLink to="/months">
-                            <button onClick={detectionSum} className="button sum__button field__button">Далее</button>
+                            <button className="button sum__button--next field__button">Далее</button>
                         </NavLink>
                     </div>
                 </div>

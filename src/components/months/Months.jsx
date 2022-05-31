@@ -6,7 +6,10 @@ const Months = (props) => {
     let getMonths = (e) => {
         let monthsCount = e.target.value;
         props.getMonths(monthsCount);
-        console.log(e);
+    }
+
+    let getResult = () => {
+        props.getResult();
     }
 
     return <>
@@ -19,10 +22,10 @@ const Months = (props) => {
                     <input onChange={getMonths} className="input months__input" type="text" value={props.monthsCount} />
                     <div className="navigation">
                         <NavLink to="/sum/*">
-                            <button className="button sum__button field__button">Назад</button>
+                            <button className="button months__button--prev field__button">Назад</button>
                         </NavLink>
                         <NavLink to="/result">
-                            <button className="button months__button field__button">Далее</button>
+                            <button onClick={getResult} className="button months__button--next field__button">Далее</button>
                         </NavLink>
                     </div>
                 </div>

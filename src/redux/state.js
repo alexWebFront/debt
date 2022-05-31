@@ -16,39 +16,39 @@ let state = {
 };
 
 export let getSum = (sum) => {
+    let notNum = document.querySelector(".sum__button--next");
     if (!isNaN(sum)) {
-        let sumTemp = sum;
-        state.sumPage.sum = sumTemp;
+        if (notNum.hasAttribute("disabled")) {
+            notNum.removeAttribute("disabled");
+        }
+        state.sumPage.sum = sum;
         rerenderTree(state);
-        return true;
     } else {
-        return false;
+        notNum.setAttribute("disabled", "disabled");
     }
 }
 
-export let detection = () => {
-
-    let temp = getSum;
-    if (temp === true) {
-        return
-    } else {
-        console.log("NAEBAL");
-        return;
-    }
-}
 
 export let getMonths = (monthsCount) => {
     state.monthsPage.months = [];
-    state.monthsPage.monthsCount = Number(monthsCount);
-    for (let i = 0; i < monthsCount;) {
-        i++
-        let monthsArr = {
-            monthsId: i,
+    let notNum = document.querySelector(".months__button--next");
+    if (!isNaN(monthsCount)) {
+        if (notNum.hasAttribute("disabled")) {
+            notNum.removeAttribute("disabled");
         }
-        state.monthsPage.months.push(monthsArr);
-        console.log(i);
+        state.monthsPage.monthsCount = Number(monthsCount);
+        for (let i = 0; i < monthsCount;) {
+            i++
+            let monthsArr = {
+                monthsId: i,
+            }
+            state.monthsPage.months.push(monthsArr);
+        }
+        rerenderTree(state);
+    } else {
+        notNum.setAttribute("disabled", "disabled");
+        rerenderTree(state);
     }
-    rerenderTree(state);
 }
 
 

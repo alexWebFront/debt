@@ -1,26 +1,15 @@
 import './Result.css';
 import {NavLink} from "react-router-dom";
-import TableItemMonths from "./Table/table-item/Table-item-months";
-import TableItemSum from "./Table/table-item/Table-item-sum";
+import TableItem from "./Table/table-item/Table-item";
+
 
 
 const Result = (props) => {
-
-    const resultMonths = props.months.map((item) => {
+    const result = props.months.map((item) => {
         return <>
-            <TableItemMonths id={item.monthsId}/>
+            <TableItem id={item.monthsId} result={props.resultPage.result}/>
         </>
     })
-
-    const resultSum = props.months.map((item) => {
-        return <>
-            <TableItemSum result={props.resultPage.result}/>
-        </>
-    })
-
-    let getResult = () => {
-        props.getResult();
-    }
 
     let resetTable = () => {
         props.resetTable();
@@ -35,17 +24,11 @@ const Result = (props) => {
                         <p className="result__months">Количество месяцев: {props.monthsCount}</p>
                     </div>
                     <div className="table">
-                        <div className="table__months">
-                            {resultMonths}
-                        </div>
-                        <div className="table__sum">
-                            {resultSum}
-                        </div>
+                        {result}
                     </div>
                 </div>
                 <div className="navigation">
-                    <button onClick={getResult} className="button result__button field__button">Произвести расчёт
-                    </button>
+                    <button className="button result__button field__button" disabled>Заглушка</button>
                     <NavLink to="/">
                         <button onClick={resetTable} className="button result__button field__button">Начать заново
                         </button>
